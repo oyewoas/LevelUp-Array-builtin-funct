@@ -30,12 +30,41 @@ const texasss = [
         gender: 'f',
         us: true,
     },
-]
+];
 
 // Part 1 - Find all users older than 24
-// Part 2 - Find the total age of all users
-// Part 3 - List all female coders
+const  findAllUsersOlderThan24 = (inputArray) => {
+    if (!Array.isArray(inputArray)) return;
+    let user = inputArray.filter(user => {if (typeof user.age === 'number'){
+        return user.age > 24
+    } });
+    return user;
 
+};
+console.log(findAllUsersOlderThan24(texasss));
+// Part 2 - Find the total age of all users
+const findTotalAge = (inputArray) => {
+    if (!Array.isArray(inputArray)) return;
+    let usersAge = inputArray.map(users =>{if (typeof users.age === 'number'){
+        return users.age;
+    } });
+    let ageSum;
+    ageSum = usersAge.reduce((sum, element) => sum + element, 0);
+    return ageSum;
+};
+console.log(findTotalAge(texasss));
+// Part 3 - List all female coders
+const listAllFemaleCoders = (inputArray) => {
+    if (!Array.isArray(inputArray)) return;
+    let femaleCoders;
+    femaleCoders = inputArray.forEach(coder => {
+        if (typeof coder.gender === 'string' && coder.gender === 'f') {
+            console.log(coder.name);
+        }
+    });
+   return femaleCoders;
+};
+listAllFemaleCoders(texasss);
 
 // ARRAY 2
 const newieyork = [
@@ -74,7 +103,7 @@ const newieyork = [
         gender: 'm',
         us: true,
     },
-]
+];
 
 // Part 1 - List all users in US in ascending order
 const listAllUsUsersInAscend = (inputArray) => {
@@ -119,7 +148,7 @@ const vegzas = [
         coder:false,
         gender: 'm',
     },
-]
+];
 
 // Part 1 - Find the total age of male coders under 25
 // Part 2 - List all male coders over 30
